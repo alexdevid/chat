@@ -1,11 +1,9 @@
 parameters:
-  admin_pass:        admin
-  database_driver:   mysql
-  database_host:     127.0.0.1
-  database_port:     ~
-  database_name:     dev_chat
-  database_user:     root
-  database_password: 5143
+  database_driver:    pdo_mysql
+  database_host:      localhost
+  database_name:      chat
+  database_user:      root
+  database_password:  5143
 
   mailer_transport:  smtp
   mailer_host:       127.0.0.1

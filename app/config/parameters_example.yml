@@ -1,10 +1,8 @@
 parameters:
-  admin_pass:        admin
-  database_driver:   mysql
-  database_host:     127.0.0.1
-  database_port:     ~
-  database_name:     db_name
-  database_user:     root
+  database_driver:    pdo_mysql
+  database_host:      localhost
+  database_name:      chat
+  database_user:      root
   database_password:
 
   mailer_transport:  smtp
@@ -12,10 +10,16 @@ parameters:
   mailer_user:       ~
   mailer_password:   ~
 
-  locale:            en
+  locale:            ru
   secret:            very_secret
+
+  memcache_host: 127.0.0.1
+  memcache_port: 11211
 
   session_expire: 31536000
 
-  host: chat.alexdevid.ru
-  cookie_host: chat.alexdevid.ru
+  host: localhost
+  cookie_host: localhost
+
+  ws_port: 1337
+  ws_host: localhost

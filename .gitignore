@@ -2,4 +2,5 @@
 vendor
 app/cache/dev/*
 app/cache/prod/*
+/app/config/parameters.yml
 app/logs/*

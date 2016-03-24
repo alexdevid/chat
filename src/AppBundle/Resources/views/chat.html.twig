@@ -10,6 +10,13 @@
             </div>
         </div>
         <div class="sidebar">
+            {% if is_granted('ROLE_ADMIN') %}
+                Hello {{ app.user.username }}!
+            {% else %}
+                <a href="{{ url('user_registration') }}">Registration</a>
+                <a href="{{ url('login') }}">Login</a>
+            {% endif %}
+            <hr>
             Online: <span class="users-online">0</span>
         </div>
     </div>

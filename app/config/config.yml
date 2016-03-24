@@ -67,18 +67,15 @@ sensio_framework_extra:
     view:    { annotations: true }
     cache:   { annotations: true }
 
-propel:
-  database:
-    connections:
-      default:
-        adapter:    %database_driver%
-        user:       %database_user%
-        password:   %database_password%
-        dsn:        %database_driver%:host=%database_host%;dbname=%database_name%;charset=UTF8
-  runtime:
-    defaultConnection: default
-  generator:
-    defaultConnection: default
+doctrine:
+  dbal:
+    driver:   '%database_driver%'
+    host:     '%database_host%'
+    dbname:   '%database_name%'
+    user:     '%database_user%'
+    password: '%database_password%'
+  orm:
+    auto_mapping: true
 
 gos_web_socket:
   server:
