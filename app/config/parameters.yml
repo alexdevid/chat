@@ -4,6 +4,7 @@ parameters:
   database_name:      chat
   database_user:      root
   database_password:  5143
+  database_port:      3306
 
   mailer_transport:  smtp
   mailer_host:       127.0.0.1
@@ -18,8 +19,8 @@ parameters:
 
   session_expire: 31536000
 
-  host: localhost
-  cookie_host: localhost
+  host: chat.local
+  cookie_host: chat.local
 
   ws_port: 1337
-  ws_host: localhost
+  ws_host: chat.local

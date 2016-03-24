@@ -10,14 +10,20 @@
             </div>
         </div>
         <div class="sidebar">
-            {% if is_granted('ROLE_ADMIN') %}
-                Hello {{ app.user.username }}!
+            {% if is_granted('ROLE_USER') %}
+                Hello {{ app.user.username }}! <a href="{{ path('fos_user_security_logout') }}">Logout</a>
             {% else %}
-                <a href="{{ url('user_registration') }}">Registration</a>
-                <a href="{{ url('login') }}">Login</a>
+                <a href="{{ path('fos_user_registration_register') }}">Register</a>
+                <a href="{{ path('fos_user_security_login') }}">Login</a>
             {% endif %}
             <hr>
             Online: <span class="users-online">0</span>
         </div>
     </div>
+
+    {% javascripts
+    '@AppBundle/Resources/public/js/chat.js'
+    output='js/chat.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}

@@ -10,7 +10,8 @@ framework:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
     form:            ~
-    csrf_protection: ~
+    csrf_protection:
+      enabled:       false
     validation:      { enabled: true, enable_annotations: false }
     templating:
         engines: ['twig']
@@ -19,10 +20,13 @@ framework:
     trusted_proxies: ~
     trusted_hosts: ~
     session:
-        name: sid
-        cookie_lifetime: %session_expire%
-        cookie_domain: %host%
+        handler_id: session.handler.pdo
     fragments:       ~
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\User
 
 # Twig Configuration
 twig:
@@ -78,6 +82,9 @@ doctrine:
     auto_mapping: true
 
 gos_web_socket:
+  client:
+    firewall: secured_area
+    session_handler: @session.handler.pdo
   server:
     port: %ws_port%
     host: %ws_host%

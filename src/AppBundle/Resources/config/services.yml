@@ -3,8 +3,24 @@ services:
     class: AppBundle\Service\ChatTopic
     tags:
       - { name: gos_web_socket.topic }
+    arguments:
+      - "@gos_web_socket.websocket.client_manipulator"
+      - "@doctrine.orm.entity_manager"
 
   acme_hello.rpc_sample_service:
     class: AppBundle\Service\ChatService
     tags:
       - { name: gos_web_socket.rpc }
+
+  pdo:
+    class: PDO
+    arguments:
+      dsn: mysql:host=%database_host%;port=%database_port%;dbname=%database_name%
+      user: %database_user%
+      password: %database_password%
+    calls:
+      - [ setAttribute, [3, 2] ]
+
+  session.handler.pdo:
+    class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+    arguments: [@pdo, {lock_mode: 0}]

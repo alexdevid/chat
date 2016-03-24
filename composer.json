@@ -19,7 +19,8 @@
     "sp/bower-bundle": "@stable",
     "gos/web-socket-bundle": "~1.7.0",
     "doctrine/doctrine-bundle": "^1.6",
-    "doctrine/orm": "~2.5.4"
+    "doctrine/orm": "~2.5.4",
+    "friendsofsymfony/user-bundle": "~2.0@dev"
   },
   "config": {
     "bin-dir": "bin/"

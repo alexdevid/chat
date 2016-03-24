@@ -2,8 +2,10 @@ app:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
 
-login_check:
-    path: /login
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+fos_user_registration_register:
+    methods: [GET, POST]
+    path: /registration
+    defaults:  { _controller: FOSUserBundle:Registration:register }
 
-logout:
-    path: /logout
