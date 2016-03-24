@@ -22,3 +22,6 @@ parameters:
 
   host: localhost
   cookie_host: localhost
+
+  ws_port: 1337
+  ws_host: localhost
