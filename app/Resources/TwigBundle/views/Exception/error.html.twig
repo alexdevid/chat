@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="language" content="english">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{ status_code }} {{ status_text }} | Alexander Tsukanov - Web Developer</title>
+    <link rel="icon" href="/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Noto+Sans|Play:400,700&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
+    <link href="/static/css/errors.css" rel="stylesheet" media="screen"/>
+</head>
+<body class="error-page">
+<div class="error-container">
+    <div class="error-message">
+        <h1>{{ status_code }} {{ status_text }}</h1>
+        The requested page couldn't be located. <br>
+        {% set lang = app.request.locale == 'ru' ? 'ru' : '' %}
+        Checkout for any URL misspelling or <a href="/{{ lang }}">return to the homepage</a>.
+        <div class="footer">
+            <p>© 2016 <a href="/">Alexander Tsukanov</a></p>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

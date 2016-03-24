@@ -1,0 +1,38 @@
+{
+  "name": "alexdevid/chat",
+  "authors": [
+    {
+      "name": "Alexander Devid",
+      "email": "kerdevid@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-intl": ">=1.0.0",
+    "symfony/symfony": "~2.4@stable",
+    "symfony/monolog-bundle": "@stable",
+    "symfony/web-profiler-bundle": "@stable",
+    "symfony/assetic-bundle": "@stable",
+    "sensio/generator-bundle": "@stable",
+    "sensio/distribution-bundle": "~4.0",
+    "sensio/framework-extra-bundle": "@stable",
+    "twig/extensions": "^1.3",
+    "propel/propel": "2.0.*@dev",
+    "propel/propel-bundle": "~2.0@dev",
+    "sp/bower-bundle": "@stable",
+    "gos/web-socket-bundle": "~1.7.0"
+  },
+  "config": {
+    "bin-dir": "bin/"
+  },
+  "autoload": {
+    "psr-4": { "": "src/" }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
+    ],
+    "post-update-cmd": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
+    ]
+  }
+}

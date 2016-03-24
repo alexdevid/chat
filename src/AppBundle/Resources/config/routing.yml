@@ -1,0 +1,4 @@
+app_frontend:
+    resource: "@AppBundle/Controller/"
+    type: annotation
+    prefix: /

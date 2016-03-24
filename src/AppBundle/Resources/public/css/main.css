@@ -1,0 +1,49 @@
+html, body {
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-color: #000;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    background-color: #333;
+}
+
+.chat {
+    height: 100%;
+    width: 80%;
+    position: relative;
+}
+.form {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.form textarea {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    background-color: #555555;
+    border: 1px solid #666;
+    color: #ccc;
+}
+
+.feed {
+    padding: 10px;
+    color: #aaa;
+}
+.feed span {
+    color: #fff;
+}
+.sidebar {
+    padding: 10px;
+    border-left: 1px solid #666;
+    color: #aaa;
+}

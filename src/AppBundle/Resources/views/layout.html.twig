@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    {% stylesheets
+    '@AppBundle/Resources/public/css/main.css'
+    output='css/main.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+    {{ ws_client() }}
+<body>
+{% block Body %}{% endblock %}
+{% javascripts
+'@AppBundle/Resources/public/js/highlight.pack.js'
+output='js/vendors.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script type="text/javascript">
+    var _WS_URI = "ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}";
+    var webSocket = WS.connect(_WS_URI);
+    webSocket.on("socket/connect", function (session) {
+
+        //get message
+        session.subscribe("acme/channel", function(uri, payload){
+            addMessage(payload);
+        });
+
+        //send message
+        document.querySelector('#input').onkeypress = function(e) {
+            if (e.which == '13') {
+                var value = document.querySelector('#input').value;
+                session.publish("acme/channel", value);
+                document.querySelector('#input').value = '';
+            }
+        };
+    });
+
+    webSocket.on("socket/disconnect", function (error) {
+        console.log("Disconnected for " + error.reason + " with code " + error.code);
+    });
+
+    function addMessage(msg) {
+        console.log(msg);
+        var feed = document.querySelector('.feed');
+        feed.innerHTML += "<p>" + msg.Time + " [" + msg.User.Name + "] <span>" + msg.Message + "</span></p>";
+        feed.scrollTop = feed.scrollHeight;
+
+        document.querySelector('.users-online').innerHTML = msg.Online;
+    }
+</script>
+</body>
+</html>

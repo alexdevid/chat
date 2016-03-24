@@ -1,0 +1,24 @@
+AppBundle\Model\Base\Article:
+  constraints:
+    - Propel\PropelBundle\Validator\Constraints\UniqueObject:
+        fields: slug
+        errorPath: slug
+        message: errors.slug.unique
+  properties:
+    category_id:
+      - NotNull: ~
+    image:
+      - NotNull: ~
+      - NotBlank: ~
+    slug:
+      - NotNull: ~
+      - NotBlank: ~
+
+AppBundle\Model\Base\ArticleI18n:
+  properties:
+    title:
+      - NotNull: ~
+      - NotBlank: ~
+    content:
+      - NotNull: ~
+      - NotBlank: ~
