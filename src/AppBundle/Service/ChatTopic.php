@@ -8,7 +8,6 @@ use Gos\Bundle\WebSocketBundle\Topic\TopicInterface;
 use Ratchet\ConnectionInterface;
 use Ratchet\Wamp\Topic;
 use Gos\Bundle\WebSocketBundle\Router\WampRequest;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 
 class ChatTopic implements TopicInterface {
@@ -28,6 +27,10 @@ class ChatTopic implements TopicInterface {
         $this->clientManipulator = $clientManipulator;
     }
 
+    /**
+     * @param ConnectionInterface $connection
+     * @return array
+     */
     private function getUser(ConnectionInterface $connection) {
         $user = $this->clientManipulator->getClient($connection);
         if($user instanceof \AppBundle\Entity\User) {
@@ -57,7 +60,7 @@ class ChatTopic implements TopicInterface {
      * @param ConnectionInterface $connection
      * @param Topic $topic
      * @param WampRequest $request
-     * @return voids
+     * @return void
      */
     public function onUnSubscribe(ConnectionInterface $connection, Topic $topic, WampRequest $request)
     {
